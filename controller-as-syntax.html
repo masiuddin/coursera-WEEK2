@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="ControllerAsSyntaxModule">
+  <head>
+    <meta charset="utf-8">
+    <title>controller-as syntax html</title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="controller-as-syntax.js"></script>
+  </head>
+  <body>
+    <div ng-controller="ParentController as parent">
+      <!-- <p> {{ parent.name }} </p>
+      <p> {{ parent.obj.value}}</p> -->
+      <p> {{ name }} </p>
+      <div ng-controller="ChildController as child">
+        <!-- <p> {{ child.name }} </p>
+        <p> {{ child.obj.value }} </p>
+        <p> {{ parent.name }} </p> -->
+        <!-- 'when we use 'as label' angular will create a 'this' object treating
+        .controller() call as function constructor and keeps properties seperate
+        avoiding masking of properties'
+          <p> {{ name }} </p> -->
+        <!-- here we cannot use name property of parentcontroller as
+        name property in child property will MASK the name in ParentController
+           -->
+      </div>
+      <p> {{ name }} </p>
+    </div>
+  </body>
+</html>

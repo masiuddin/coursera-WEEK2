@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app = "CustomFilterModule">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bootstrap.min.css"></link>
+    <script src="angular.min.js"></script>
+    <script src="app2.js"> </script>
+    <script type="text/javascript"
+            src="prototypalInheritance-FunctionConstuctor.js">
+
+    </script>
+    <title></title>
+  </head>
+  <body >
+    <div class="container" ng-controller="CustomFilterController">
+      <h1>hello {{name}}</h1>
+      <button class="btn btn-default">Check If Too Much</button>
+      <h1> {{bottomLine | replaced : 'good' : 'nice' | uppercase}}
+    </div>
+
+  </body>
+</html>
