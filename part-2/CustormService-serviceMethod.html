@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="CustomServiceModule1">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="customService-ServiceMethod.js">
+    </script>
+    <title> custom service - service method </title>
+  </head>
+  <body>
+
+    <div ng-controller='AddController as addCtrl'>
+      item name : <input type='text' ng-model="addCtrl.name"> <br>
+      item quantity :<input type='text' ng-model="addCtrl.quantity"> <br>
+      <button ng-click='addCtrl.addItem()'>addItem</button>
+    </div>
+    <h2> items are </h2>
+    <div ng-controller="ShowController as showCtrl">
+        <ul>
+          <li ng-repeat='item in showCtrl.items'>
+            {{ item.name }}
+            {{ item.quantity }}
+            <button ng-click="showCtrl.remove($index)">remove</button>
+          </li>
+
+        </ul>
+
+    </div>
+
+  </body>
+</html>

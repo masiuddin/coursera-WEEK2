@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="CustomFactoryModule">
+  <head>
+    <meta charset="utf-8">
+    <title>custom service using factory method</title>
+    <script src="angular.min.js"> </script>
+    <script type="text/javascript" src="CustomService-FactoryMethod.js"></script>
+  </head>
+  <body>
+    <div ng-controller="LimitedController as limitedCtrl">
+      <div>
+        <h1> only 3 items are allowed to add in the cart </h1>
+        item name : <input type="text" ng-model="limitedCtrl.itemName"><br>
+        item quantity : <input type="text" ng-model="limitedCtrl.itemQuantity"><br>
+        <button ng-click="limitedCtrl.addItem()">add item </button>
+        <!-- <p> error : {{ limitedCtrl.message }} </p> -->
+      </div>
+      <div>
+        <ul>
+          <li ng-repeat="item in limitedCtrl.items">
+            {{item.name}}
+            {{ item.quantity }}
+            <button ng-click="limitedCtrl.removeItem($index)"> remove </button>
+          </li>
+        </ul>
+      </div>
+  </div>
+  <div ng-controller="UnlimitedController as unlimitedCtrl">
+    <div>
+      <h1> unlimiteditems are allowed to add in the cart </h1>
+      item name : <input type="text" ng-model="unlimitedCtrl.itemName"><br>
+      item quantity : <input type="text" ng-model="unlimitedCtrl.itemQuantity"><br>
+      <button ng-click="unlimitedCtrl.addItem()">add item </button>
+      <!-- <p> error : {{ limitedCtrl.message }} </p> -->
+    </div>
+    <div>
+      <ul>
+        <li ng-repeat="item in unlimitedCtrl.items">
+          {{ item.name }}
+          {{ item.quantity }}
+          <button ng-click="unlimitedCtrl.removeItem($index)">remove</button>
+        </li>
+      </ul>
+    </div>
+</div>
+
+  </body>
+</html>
